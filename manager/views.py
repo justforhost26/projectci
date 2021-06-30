@@ -359,20 +359,20 @@ def logout(request):
 def image_validator(request, image, i):
    my_image = Image.open(image)
    w, h = my_image.size
-   if w < 1000 :
-      msg = "Image " + i + " Width Should Be 1000px-1600px "
+   if w < 400 :
+      msg = "Image " + i + " Width Should Be 400px-1800px "
       messages.warning(request, msg)
       return redirect(add_sliders)
-   elif w > 1600:
-      msg = "Image " + i + " Width Should Be 1000px-1600px "
+   elif w > 1800:
+      msg = "Image " + i + " Width Should Be 1000px-1800px "
       messages.warning(request, msg)
       return redirect(add_sliders)
-   elif h < 200:
-      msg = "Image  " + i + " Height Should Be 200px - 300px"
+   elif h < 100:
+      msg = "Image  " + i + " Height Should Be 100px - 900px"
       messages.warning(request, msg)
       return redirect(add_sliders)
-   elif h > 250:
-      msg = "Image " + i + " Height Should Be 200px - 300px"
+   elif h > 900:
+      msg = "Image " + i + " Height Should Be 100px - 900px"
       messages.warning(request, msg)
       return redirect(add_sliders)
    else:
