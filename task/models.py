@@ -37,7 +37,7 @@ class Sliders(Model):
     #,validators=[validate_slider_image]
     website = models.ForeignKey(WebsiteName,on_delete=models.CASCADE)
     Slider1 = models.ImageField(upload_to='static/slider_image/',default="static/default.jpg") 
-    Slider2 = models.ImageField(upload_to='static/slider_image/',default="static/default.jpg"
+    Slider2 = models.ImageField(upload_to='static/slider_image/',default="static/default.jpg")
     Slider3 = models.ImageField(upload_to='static/slider_image/',default="static/default.jpg")
 
 class Images(Model):
