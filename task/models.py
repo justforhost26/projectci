@@ -5,21 +5,21 @@ from django.db import models
 # Create your models here.
 from django.db.models import Model
 
-def validate_slider_image(image):
-    file_size = image.file.size
-    limit_kb = 10000
-    if file_size > limit_kb * 1024:
-        raise ValidationError("Max size of Image Should Note Be More Then  1Mb" )
-    my_image = Image.open(image)
-    w, h = my_image.size
-    print(w,h)
+# def validate_slider_image(image):
+#     file_size = image.file.size
+#     limit_kb = 10000
+#     if file_size > limit_kb * 1024:
+#         raise ValidationError("Max size of Image Should Note Be More Then  1Mb" )
+#     my_image = Image.open(image)
+#     w, h = my_image.size
+#     print(w,h)
 
-    if w<1000 & w>1400:
-        raise ValidationError("Image Width Should Be 1000px-1400px ")
-    if h<200:
-        raise ValidationError("Image Height Should Be 200px - 260px")
-    if h>250:
-        raise ValidationError("Image Height Should Be 200px - 260px")
+#     if w<1000 & w>1400:
+#         raise ValidationError("Image Width Should Be 1000px-1400px ")
+#     if h<200:
+#         raise ValidationError("Image Height Should Be 200px - 260px")
+#     if h>250:
+#         raise ValidationError("Image Height Should Be 200px - 260px")
 
 
 class WebsiteName(Model):
@@ -34,10 +34,11 @@ class Menu(Model):
         return self.name_of_nav_item
 
 class Sliders(Model):
+    #,validators=[validate_slider_image]
     website = models.ForeignKey(WebsiteName,on_delete=models.CASCADE)
-    Slider1 = models.ImageField(upload_to='static/slider_image/',default="static/default.jpg",validators=[validate_slider_image])
-    Slider2 = models.ImageField(upload_to='static/slider_image/',default="static/default.jpg",validators=[validate_slider_image])
-    Slider3 = models.ImageField(upload_to='static/slider_image/',default="static/default.jpg",validators=[validate_slider_image])
+    Slider1 = models.ImageField(upload_to='static/slider_image/',default="static/default.jpg") 
+    Slider2 = models.ImageField(upload_to='static/slider_image/',default="static/default.jpg"
+    Slider3 = models.ImageField(upload_to='static/slider_image/',default="static/default.jpg")
 
 class Images(Model):
     website=models.ForeignKey(WebsiteName,on_delete=models.CASCADE)
