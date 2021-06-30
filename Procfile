@@ -1,0 +1,1 @@
+web: gunicorn craftin_images_task.wsgi

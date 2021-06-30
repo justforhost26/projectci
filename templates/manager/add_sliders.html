@@ -1,0 +1,129 @@
+{% extends 'manager/base.html' %}
+
+{% block content %}
+    <style>
+    .slider-input{
+        width:50%;
+    }
+    </style>
+    {%  include 'manager/messages.html' %}
+{% if pre_sliders %}
+<br>
+    <div class="container shadow p-3" style="width:90%;max-width:500px;">
+
+<h3 style="text-align: center">Update Sliders</h3>
+      <div class="col-12">
+    <label for="inputState" class="form-label">Website Name</label>
+    <select id="inputState" name="website" class="form-select" required>
+      {% for data in datas %}
+          <option value="{{ data.name_of_website }}">{{ data.name_of_website }}</option>
+        {% endfor %}
+    </select>
+  </div>
+
+
+
+<br>
+
+<form method="post" action="{% url 'update_slider' slider_value=1 %}" enctype="multipart/form-data">
+{% csrf_token %}
+    <div class="row p-2 shadow " style="max-width: 100%; margin-left: 1px;">
+        <div class="col-lg-3 ">
+            <small>Slider 1</small>
+
+            <img style="max-width:80%;height: 60px;" src="{{ pre_sliders.Slider1.url }}">
+        </div>
+
+         <div class="col-lg-6 ">
+             <small>Select New</small>
+            <input type="hidden" name="slider_value" value="1">
+             <input style="width:90%;" type="file" class="form-control" name="Slider1" required>
+         </div>
+          <div class="col-lg-3 ">
+              <small>Action</small><br>
+             <input type="submit" class="btn btn-warning" value="update">
+         </div>
+    </div>
+</form>
+<form method="post" action="{% url 'update_slider' slider_value=2 %}" enctype="multipart/form-data">
+{% csrf_token %}
+    <div class="row p-2 shadow " style="max-width: 100%; margin-left: 1px;">
+        <div class="col-lg-3 ">
+            <small>Slider 2</small>
+            <img style="max-width:80%;height: 60px;" src="{{ pre_sliders.Slider2.url }}">
+        </div>
+         <div class="col-lg-6 ">
+             <small>Select New</small>
+            <input type="hidden" name="slider_value" value="2">
+
+             <input style="width:90%;" type="file" class="form-control" name="Slider2" required>
+         </div>
+          <div class="col-lg-3 ">
+              <small>Action</small><br>
+             <input type="submit" class="btn btn-warning" value="update">
+         </div>
+    </div>
+</form>
+    <form method="post" action="{% url 'update_slider' slider_value=3 %}" enctype="multipart/form-data">
+{% csrf_token %}
+    <div class="row p-2 shadow " style="max-width: 100%; margin-left: 1px;">
+        <div class="col-lg-3 ">
+            <small>Slider 3</small>
+            <img style="max-width:80%;height: 60px;" src="{{ pre_sliders.Slider3.url }}">
+        </div>
+         <div class="col-lg-6 ">
+             <small>Select New</small>
+            <input type="hidden" name="slider_value" value="3">
+
+             <input style="width:90%;" type="file" class="form-control" name="Slider3" required>
+         </div>
+          <div class="col-lg-3 ">
+              <small>Action</small><br>
+             <input type="submit" class="btn btn-warning" value="update">
+         </div>
+    </div>
+
+    </form>
+
+    {% else %}
+    <!--start form-->
+  <br>
+<div class="container shadow p-3 " style="width:50%">
+  <form class="row g-3 " method="post" action="{% url 'add_sliders' %}" enctype="multipart/form-data">
+      {% csrf_token %}
+<h3 style="text-align: center">Add Sliders</h3>
+      <div class="col-12">
+    <label for="inputState" class="form-label">Website Name</label>
+    <select id="inputState" name="website" class="form-select" required>
+
+      {% for data in datas %}
+          <option value="{{ data.name_of_website }}">{{ data.name_of_website }}</option>
+        {% endfor %}
+    </select>
+  </div>
+
+  <div class="col-12" >
+    <label for="inputAddress" class="form-label">Slider Image 1</label>
+    <input type="file" name="Slider1" class="form-control  " id="inputAddress" required>
+  </div>
+
+        <div class="col-12">
+    <label for="inputAddress" class="form-label">Slider Image 2</label>
+    <input type="file" name="Slider2" class="form-control " id="inputAddress" required>
+  </div>
+
+  <div class="col-12">
+    <label for="inputAddress" class="form-label">Slider Image 3</label>
+    <input type="file" name="Slider3" class="form-control " id="inputAddress" required>
+  </div>
+
+     <center>
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary">Add</button>
+  </div>
+         </center>
+</form>
+    </div>
+    {% endif %}
+  <!--End form-->
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'manager/base.html' %}
+
+{% block content %}
+    {%  include 'manager/messages.html' %}
+<!--start form-->
+  <br>
+<div class="container shadow p-3 " style="width:50%">
+  <form class="row g-3 " method="post" action="{% url 'add_websitename' %}">
+      {% csrf_token %}
+<h3 style="text-align: center">Add Website Name</h3>
+
+  <div class="col-12">
+    <label for="inputAddress" class="form-label">Website Name</label>
+    <input type="text" value="{{ website_name }}" name="name_of_website" class="form-control" id="inputAddress" placeholder="Enter Website Name" required>
+  </div>
+     <center>
+  <div class="col-12">
+   {% if website_name %}
+       <button type="submit" class="btn btn-warning ">Update</button>
+      {% else %}
+       <button type="submit" class="btn btn-primary">Add</button>
+      {% endif %}
+  </div>
+         </center>
+</form>
+    </div>
+  <!--End form-->
+{% endblock %}

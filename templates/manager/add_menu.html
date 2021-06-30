@@ -1,0 +1,76 @@
+{% extends 'manager/base.html' %}
+
+{% block content %}
+    {%  include 'manager/messages.html' %}
+
+
+    <div class="row p-2">
+        <div class="col-lg-6">
+            <!--start form-->
+                  <br>
+                <div class="container shadow p-4 " style="width:90%">
+                  <form class="row g-3 " method="post" action="{% url 'add_menu' %}">
+                      {% csrf_token %}
+                <h3 style="text-align: center">Add Menu</h3>
+                      <div class="col-12">
+                    <label for="inputState" class="form-label">Website Name</label>
+                    <select id="inputState" name="website" class="form-select" required>
+                      {% for data in datas %}
+                          <option value="{{ data.name_of_website }}">{{ data.name_of_website }}</option>
+                        {% endfor %}
+                    </select>
+                  </div>
+
+                  <div class="col-12">
+                    <label for="inputAddress" class="form-label">Menu Name</label>
+                    <input type="text" name="name_of_nav_item" class="form-control" id="inputAddress" placeholder="Enter Menu Name" required>
+                  </div>
+
+
+                     <center>
+                  <div class="col-12">
+                    <button type="submit" class="btn btn-primary">Add</button>
+                  </div>
+                         </center>
+                </form>
+                    </div>
+                  <!--End form-->
+
+        </div>
+        <div class="col-lg-6 p-4">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">Menu Name</th>
+                  <th scope="col">Website Name</th>
+                    <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+
+              {% for menuname in menu %}
+
+                    <tr>
+                      <td>
+                         {{ menuname }}
+                          <input type="hidden" value="{{ menuname.id }}">
+                      </td>
+                      <td>{{ website_name }}</td>
+                        <td>
+                            <a  href="{%  url  'update_menu_item' id=menuname.id  %}" class="btn btn-warning">Update</a>
+                            <a  href="{% url 'delete_menu_item' id=menuname.id %}"  class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
+              {% endfor  %}
+
+              </tbody>
+            </table>
+           {% if menu  %}
+              {% else %}
+               <h5>No Menu Added</h5>
+              {% endif %}
+        </div>
+    </div>
+
+
+{% endblock %}

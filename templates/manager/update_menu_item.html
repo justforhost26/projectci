@@ -1,0 +1,30 @@
+{% extends 'manager/base.html' %}
+
+{% block content %}
+    {%  include 'manager/messages.html' %}
+
+
+             <br>
+                <div class="container shadow p-4 " style="width:90%;max-width: 450px;">
+                  <form class="row g-3 " method="POST" action="{% url 'update_menu_item_con' %}">
+                      {% csrf_token %}
+                <h3 style="text-align: center">Update Menu</h3>
+                      <input type="hidden" name="id" value="{{  menu_data.id }}">
+                  <div class="col-12">
+                    <label for="inputAddress" class="form-label">Enter New Menu Name</label>
+                    <input type="text" value="{{  menu_data.name_of_nav_item}}" name="menuname" class="form-control" id="inputAddress" placeholder="Enter New Menu Name" required>
+                  </div>
+
+
+                     <center>
+                  <div class="col-12">
+                    <button type="submit" class="btn btn-warning">Update</button>
+                  </div>
+                         </center>
+                </form>
+                    </div>
+                  <!--End form-->
+
+
+
+{% endblock %}

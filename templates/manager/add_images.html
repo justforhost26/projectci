@@ -1,0 +1,207 @@
+{% extends 'manager/base.html' %}
+
+{% block content %}
+    {%  include 'manager/messages.html' %}
+{% if pre_image %}
+<br>
+    <div class="container shadow p-3" style="width:90%;max-width:500px;">
+
+<h3 style="text-align: center">Update Images</h3>
+      <div class="col-12">
+    <label for="inputState" class="form-label">Website Name</label>
+    <select id="inputState" name="website" class="form-select" required>
+
+          <option value="{{ datas }}">{{ datas }}</option>
+          </select>
+  </div>
+
+
+
+<br>
+
+    <form method="post" action="{% url 'update_image' image_value=1 %}" enctype="multipart/form-data">
+    {% csrf_token %}
+        <div class="row p-2 shadow " style="max-width: 100%; margin-left: 1px;">
+            <div class="col-lg-3 ">
+                <small>Image 1</small>
+
+                <img style="max-width:80%;height: 60px;" src="{{ pre_image.image1.url }}">
+            </div>
+
+             <div class="col-lg-6 ">
+                 <small>Select New</small>
+                <input type="hidden" name="image_value" value="1">
+                 <input style="width:90%;" type="file" class="form-control" name="image1" required>
+             </div>
+              <div class="col-lg-3 ">
+                  <small>Action</small><br>
+                 <input type="submit" class="btn btn-warning" value="update">
+             </div>
+    </div>
+</form>
+
+
+    <form method="post" action="{% url 'update_image' image_value=2 %}" enctype="multipart/form-data">
+    {% csrf_token %}
+        <div class="row p-2 shadow " style="max-width: 100%; margin-left: 1px;">
+            <div class="col-lg-3 ">
+                <small>Image 2</small>
+
+                <img style="max-width:80%;height: 60px;" src="{{ pre_image.image2.url }}">
+            </div>
+
+             <div class="col-lg-6 ">
+                 <small>Select New</small>
+                <input type="hidden" name="image_value" value="2">
+                 <input style="width:90%;" type="file" class="form-control" name="image2" required>
+             </div>
+              <div class="col-lg-3 ">
+                  <small>Action</small><br>
+                 <input type="submit" class="btn btn-warning" value="update">
+             </div>
+    </div>
+</form>
+
+
+
+    <form method="post" action="{% url 'update_image' image_value=3 %}" enctype="multipart/form-data">
+    {% csrf_token %}
+        <div class="row p-2 shadow " style="max-width: 100%; margin-left: 1px;">
+            <div class="col-lg-3 ">
+                <small>Image 3</small>
+
+                <img style="max-width:80%;height: 60px;" src="{{ pre_image.image3.url }}" >
+            </div>
+
+             <div class="col-lg-6 ">
+                 <small>Select New</small>
+                <input type="hidden" name="image_value" value="3">
+                 <input style="width:90%;" type="file" class="form-control" name="image3" required>
+             </div>
+              <div class="col-lg-3 ">
+                  <small>Action</small><br>
+                 <input type="submit" class="btn btn-warning" value="update">
+             </div>
+    </div>
+</form>
+
+
+    <form method="post" action="{% url 'update_image' image_value=4 %}" enctype="multipart/form-data">
+    {% csrf_token %}
+        <div class="row p-2 shadow " style="max-width: 100%; margin-left: 1px;">
+            <div class="col-lg-3 ">
+                <small>Image 4</small>
+
+                <img style="max-width:80%;height: 60px;" src="{{ pre_image.image4.url }}">
+            </div>
+
+             <div class="col-lg-6 ">
+                 <small>Select New</small>
+                <input type="hidden" name="image_value" value="4">
+                 <input style="width:90%;" type="file" class="form-control" name="image4" required>
+             </div>
+              <div class="col-lg-3 ">
+                  <small>Action</small><br>
+                 <input type="submit" class="btn btn-warning" value="update">
+             </div>
+    </div>
+</form>
+
+
+
+    <form method="post" action="{% url 'update_image' image_value=5 %}" enctype="multipart/form-data">
+    {% csrf_token %}
+        <div class="row p-2 shadow " style="max-width: 100%; margin-left: 1px;">
+            <div class="col-lg-3 ">
+                <small>Image 5</small>
+
+                <img style="max-width:80%;height: 60px;" src="{{ pre_image.image5.url }}">
+            </div>
+
+             <div class="col-lg-6 ">
+                 <small>Select New</small>
+                <input type="hidden" name="image_value" value="5">
+                 <input style="width:90%;" type="file" class="form-control" name="image5" required>
+             </div>
+              <div class="col-lg-3 ">
+                  <small>Action</small><br>
+                 <input type="submit" class="btn btn-warning" value="update">
+             </div>
+    </div>
+</form>
+
+
+
+    <form method="post" action="{% url 'update_image' image_value=6 %}" enctype="multipart/form-data">
+    {% csrf_token %}
+        <div class="row p-2 shadow " style="max-width: 100%; margin-left: 1px;">
+            <div class="col-lg-3 ">
+                <small>Image 6</small>
+
+                <img style="max-width:80%;height: 60px;" src="{{ pre_image.image6.url }}">
+            </div>
+
+             <div class="col-lg-6 ">
+                 <small>Select New</small>
+                <input type="hidden" name="image_value" value="6">
+                 <input style="width:90%;" type="file" class="form-control" name="image6" required>
+             </div>
+              <div class="col-lg-3 ">
+                  <small>Action</small><br>
+                 <input type="submit" class="btn btn-warning" value="update">
+             </div>
+    </div>
+</form>
+
+    {% else %}
+
+    <!--start form-->
+  <br>
+<div class="container shadow p-3 " style="width:50%">
+  <form class="row g-3 " method="post" action="{% url 'add_images' %}" enctype="multipart/form-data">
+      {% csrf_token %}
+<h3 style="text-align: center">Add Images</h3>
+      <div class="col-12">
+    <label for="inputState" class="form-label">Website Name</label>
+    <select id="inputState" name="website" class="form-select" required>
+
+
+          <option value="{{ datas }}">{{ datas }}</option>
+         </select>
+  </div>
+
+  <div class="col-12">
+    <label for="inputAddress" class="form-label"> Image 1</label>
+    <input type="file" name="image1" class="form-control" id="inputAddress" placeholder="Enter heading od website" required>
+  </div>
+        <div class="col-12">
+    <label for="inputAddress" class="form-label"> Image 2</label>
+    <input type="file" name="image2" class="form-control" id="inputAddress" placeholder="Enter heading od website" required>
+  </div>
+  <div class="col-12">
+    <label for="inputAddress" class="form-label"> Image 3</label>
+    <input type="file" name="image3" class="form-control" id="inputAddress" placeholder="Enter heading od website" required>
+  </div>
+  <div class="col-12">
+    <label for="inputAddress" class="form-label"> Image 4</label>
+    <input type="file" name="image4" class="form-control" id="inputAddress" placeholder="Enter heading od website" required>
+  </div>
+        <div class="col-12">
+    <label for="inputAddress" class="form-label"> Image 5</label>
+    <input type="file" name="image5" class="form-control" id="inputAddress" placeholder="Enter heading od website" required>
+  </div>
+  <div class="col-12">
+    <label for="inputAddress" class="form-label"> Image 6</label>
+    <input type="file" name="image6" class="form-control" id="inputAddress" placeholder="Enter heading od website" required>
+  </div>
+
+     <center>
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary">Add</button>
+  </div>
+         </center>
+</form>
+    </div>
+    {% endif %}
+  <!--End form-->
+{% endblock %}
