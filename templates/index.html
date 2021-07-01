@@ -17,7 +17,7 @@
 
           @media only screen and (max-width: 500px) {
   #slider {
-    height:300px;
+    height:250px;
   }
                .image{
               height:200px;
@@ -49,7 +49,7 @@
   <nav class="navbar navbar-expand-lg navbar navbar-dark bg-primary">
   <div class="container-fluid">
 
-    <a class="navbar-brand" href="#" style="font-size: 30px;">{{ datas }}</a>
+    <a class="navbar-brand" href="#" style="font-size: 30px;"><img src="/static/logo.jpeg" style="width:50px;height:50px;border-radius: 100px;"></a>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -57,7 +57,7 @@
 
     <div class="collapse navbar-collapse" id="navbarScroll">
 
-      <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+      <ul class="navbar-nav me-auto my-2 my-lg-0 " style="--bs-scroll-height: 100px;">
        {% for menu in menus %}
         <li class="nav-item">
           <a class="nav-link active " aria-current="page" href="#">{{ menu.name_of_nav_item }}</a>
@@ -72,7 +72,7 @@
   <!--end of nav bar-->
 
 <!--Slider-->
-  <div id="carouselExampleInterval" class="carousel slide mt-1" data-bs-ride="carousel">
+  <div id="carouselExampleInterval" class="carousel slide " data-bs-ride="carousel">
 {% for slider in sliders %}
 
 
